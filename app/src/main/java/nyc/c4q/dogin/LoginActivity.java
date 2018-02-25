@@ -6,14 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String SHARED_PREFS_KEY = "sharedPrefsKey";
     private EditText userNameInput;
     private EditText passwordInput;
-    private CheckBox checkBoxSave;
+    private boolean validUser;
     private Button buttonSubmit;
     private SharedPreferences login;
 
@@ -22,9 +21,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         userNameInput = findViewById(R.id.edit_text_username);
         passwordInput = findViewById(R.id.edit_text_password);
-        //checkBoxSave = findViewById(R.id.checkbox_save);
         login = getApplicationContext().getSharedPreferences(SHARED_PREFS_KEY, MODE_PRIVATE);
 
         buttonSubmit = findViewById(R.id.button_submit);
@@ -35,19 +34,30 @@ public class LoginActivity extends AppCompatActivity {
                 String checkUser = "charlie";
                 String checkPassword = "abc123";
 
-                if (checkBoxSave.isChecked()) {
+                if (userNameInput != null && passwordInput != null) {
+                    validUser = true;
                     editor.putString("username", userNameInput.getText().toString());
                     editor.putString("password", passwordInput.getText().toString());
-                    editor.putBoolean("isChecked", checkBoxSave.isChecked());
+                    editor.putBoolean("validUser", validUser);
                     editor.commit();
                 } else {
-                    editor.putBoolean("isChecked", checkBoxSave.isChecked());
+                    editor.putBoolean("isChecked", true);
                     editor.commit();
                 }
                 if (userNameInput.getText().toString().contains(checkUser) && passwordInput.getText().toString().contains(checkPassword)) {
-                   // Intent intent = new Intent(LoginActivity.this, BreedsActivity.class);
-                   // intent.putExtra("currentUser", userNameInput.getText().toString());
-                   // startActivity(intent);
+                   String uniqueUser = userNameInput.getText().toString();
+                   String uniquePassword = passwordInput.getText().toString();
+                   if(uniquePassword.contains(uniqueUser)){
+                       passwordInput.setError("Password cannot contain username");
+                       passwordInput.requestFocus();
+                   } else {
+                        Intent intent = new Intent(LoginActivity.this, BreedsActivity.class);
+                        intent.putExtra("currentUser", userNameInput.getText().toString());
+
+                        startActivity(intent);
+                   }
+
+
                 } else {
                     userNameInput.setError("Please Enter a Valid Username");
                     passwordInput.setError("Please Enter a Valid Password");
@@ -57,10 +67,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        if (login.getBoolean("isChecked", false)) {
+        if (login.getBoolean("validUser", false)) {
             userNameInput.setText(login.getString("username", null));
             passwordInput.setText(login.getString("password", null));
-            checkBoxSave.setChecked(login.getBoolean("isChecked", false));
+            //validUser.setChecked(login.getBoolean("isChecked", false));
         }
     }
+//    public boolean isPrefencesSaved(SharedPreferences login){
+//        if(login == null){
+//
+//        } else {
+//            Intent intent = new Intent(LoginActivity.this, BreedsActivity.class);
+//            intent.putExtra("currentUser", userNameInput.getText().toString());
+//        }
+//        return false;
+//    }
 }

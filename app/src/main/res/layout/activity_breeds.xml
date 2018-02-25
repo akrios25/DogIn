@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container_number"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="nyc.c4q.dogin.BreedsActivity">
 
+
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
@@ -20,9 +22,11 @@
             android:gravity="center"
             android:textAppearance="?attr/textAppearanceListItem"
             android:textSize="20dp" />
+
+
         <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view"
+            android:id="@+id/terrier_cv"
             android:layout_width="320dp"
             android:layout_height="150dp"
             app:cardCornerRadius="30dp"
@@ -35,33 +39,129 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <ImageView
-                    android:id="@+id/breed_image_view"
+                    android:id="@+id/terrier_image_view"
+                    android:src="@drawable/terrier2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_alignParentRight="true"/>
 
                 <TextView
-                    android:id="@+id/breed_name_view"
+                    android:id="@+id/terrier_breed_name"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_margin="8dp"
                     android:gravity="center"
-                    android:text="breed"
+                    android:text="Terrier"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             </RelativeLayout>
 
 
         </android.support.v7.widget.CardView>
-       <!-- MIGHT NOT NEED
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/dog_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/spaniel_cv"
+            android:layout_width="320dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="30dp"
+            android:layout_gravity="center"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/spaniel_image_view"
+                    android:src="@drawable/spaniel2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentRight="true"/>
 
-        </android.support.v7.widget.RecyclerView>
-        -->
+                <TextView
+                    android:id="@+id/spaniel_breed_name"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:text="spaniel"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/retriever_cv"
+            android:layout_width="320dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="30dp"
+            android:layout_gravity="center"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/retriever_image_view"
+                    android:src="@drawable/retriever2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:id="@+id/retriever_breed_name"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:text="Retriever"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/poodle_cv"
+            android:layout_width="320dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="30dp"
+            android:layout_gravity="center"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/poodle_image_view"
+                    android:src="@drawable/poodle2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:id="@+id/poodle_breed_name"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:text="Poodle"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
     </LinearLayout>
-</FrameLayout>
+</ScrollView>
+
 
 
